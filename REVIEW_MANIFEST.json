@@ -1,6 +1,7 @@
 {
   "prepared": "2026-10-29",
-  "scope": "Separate technical-review source snapshot; no original repository history",
+  "scope": "MIT Maker Portfolio code and design supporting materials; AI CAD Tutor source included, laboratory spine code and massager modeling workflow linked upstream; no original repository history",
+  "source_root": "projects/01-ai-cad-tutor/source",
   "source_file_count": 88,
   "files": [
     {
@@ -14,549 +15,564 @@
       "sha256": "ec38ff3c322d10259f93164c422b9191c9cefa51144f88f769b155486a90e246"
     },
     {
-      "path": "CONFIGURATION_TEMPLATE.txt",
+      "path": "PORTFOLIO_CODE_GUIDE.md",
+      "bytes": 1211,
+      "sha256": "da93108c46ff3f1c1d503d3db7d1f799d405e5ce1b8ac3356d71c13a4d9d6d47"
+    },
+    {
+      "path": "projects/01-ai-cad-tutor/CONFIGURATION_TEMPLATE.txt",
       "bytes": 1227,
       "sha256": "8b9cd6e8a61627e1ba5228eb0d9cb5572fd25068a4b511b95f7049352a7c6398"
     },
     {
-      "path": "DEPENDENCIES_AND_LICENSES.json",
+      "path": "projects/01-ai-cad-tutor/DEPENDENCIES_AND_LICENSES.json",
       "bytes": 36119,
       "sha256": "9e6d90498bfe002ff06d509d3fa22b3a6abddbbada57da71083849c6e42105ba"
     },
     {
-      "path": "LICENSE_STATUS.txt",
+      "path": "projects/01-ai-cad-tutor/LICENSE_STATUS.txt",
       "bytes": 994,
       "sha256": "763a109b0551de956ef8a98f4a8c42ab43197fea2d6b46ec23a43556e5956b7c"
     },
     {
-      "path": "licenses/node/@vitejs__plugin-react/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/node/@vitejs__plugin-react/LICENSE",
       "bytes": 1103,
       "sha256": "29b68325fe026047d13e187b44c33b2acacf7dc647dec4583702e59f235e13b5"
     },
     {
-      "path": "licenses/node/ajv/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/node/ajv/LICENSE",
       "bytes": 1090,
       "sha256": "a05350a88e318e4f5f2c2a1ff1e2e88daa4dd38e6e78b71cccae422bdc762cc3"
     },
     {
-      "path": "licenses/node/react/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/node/react/LICENSE",
       "bytes": 1086,
       "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
     },
     {
-      "path": "licenses/node/react-dom/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/node/react-dom/LICENSE",
       "bytes": 1086,
       "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
     },
     {
-      "path": "licenses/node/typescript/LICENSE.txt",
+      "path": "projects/01-ai-cad-tutor/licenses/node/typescript/LICENSE.txt",
       "bytes": 9197,
       "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47"
     },
     {
-      "path": "licenses/node/vite/LICENSE.md",
+      "path": "projects/01-ai-cad-tutor/licenses/node/vite/LICENSE.md",
       "bytes": 162419,
       "sha256": "04d9940b3b8b372bff74437c3b153eda8a89642669c4209a4f67135eb3132bc9"
     },
     {
-      "path": "licenses/python/fastapi/licenses/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/python/fastapi/licenses/LICENSE",
       "bytes": 1086,
       "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e"
     },
     {
-      "path": "licenses/python/httpx/licenses/LICENSE.md",
+      "path": "projects/01-ai-cad-tutor/licenses/python/httpx/licenses/LICENSE.md",
       "bytes": 1508,
       "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d"
     },
     {
-      "path": "licenses/python/jsonschema/licenses/COPYING",
+      "path": "projects/01-ai-cad-tutor/licenses/python/jsonschema/licenses/COPYING",
       "bytes": 1057,
       "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439"
     },
     {
-      "path": "licenses/python/pydantic/licenses/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/python/pydantic/licenses/LICENSE",
       "bytes": 1129,
       "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3"
     },
     {
-      "path": "licenses/python/pydantic-settings/licenses/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/python/pydantic-settings/licenses/LICENSE",
       "bytes": 1103,
       "sha256": "eb355a753e020346d33d83bf9769135b89fc610568ac531a01c295bcee7fd998"
     },
     {
-      "path": "licenses/python/referencing/licenses/COPYING",
+      "path": "projects/01-ai-cad-tutor/licenses/python/referencing/licenses/COPYING",
       "bytes": 1057,
       "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c"
     },
     {
-      "path": "licenses/python/starlette/licenses/LICENSE.md",
+      "path": "projects/01-ai-cad-tutor/licenses/python/starlette/licenses/LICENSE.md",
       "bytes": 1518,
       "sha256": "dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf"
     },
     {
-      "path": "licenses/python/torch/LICENSE",
+      "path": "projects/01-ai-cad-tutor/licenses/python/torch/LICENSE",
       "bytes": 506902,
       "sha256": "d61701e874c39a858d92c47c2cbf3bd8b9e498032a18ae42832fba591752ce1f"
     },
     {
-      "path": "licenses/python/torch/NOTICE",
+      "path": "projects/01-ai-cad-tutor/licenses/python/torch/NOTICE",
       "bytes": 24088,
       "sha256": "1c3dec6c0342c7ed9e12af59b296c7bb1d394af5cf881db74191cc8299efce5c"
     },
     {
-      "path": "licenses/python/uvicorn/licenses/LICENSE.md",
+      "path": "projects/01-ai-cad-tutor/licenses/python/uvicorn/licenses/LICENSE.md",
       "bytes": 1526,
       "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371"
     },
     {
-      "path": "PORTFOLIO_CODE_GUIDE.md",
-      "bytes": 3499,
-      "sha256": "16c9ade6890fff268f978836aeb3e397c147713f3e231210244f0eb1f4e4f5e0"
+      "path": "projects/01-ai-cad-tutor/README.md",
+      "bytes": 5822,
+      "sha256": "302b809c43cc276d81a8983cae9cd922fdd526f7e0f1775c1c19e68d51c5676a"
     },
     {
-      "path": "README.md",
-      "bytes": 6119,
-      "sha256": "b7d71231f7651a1f43dd8b016cb622c87183add63b2e01027c561b8c868384a7"
-    },
-    {
-      "path": "source/apps/web/index.html",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/index.html",
       "bytes": 419,
       "sha256": "451d80cd54ed35241b896ae647ee36e872259420bfe04fabdf36ec70099d2990"
     },
     {
-      "path": "source/apps/web/package-lock.json",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/package-lock.json",
       "bytes": 109389,
       "sha256": "a25b53d8fdd98506a3b8d7840e3fb05ffbfeed9370ed07fefaa4cb198c59303f"
     },
     {
-      "path": "source/apps/web/package.json",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/package.json",
       "bytes": 691,
       "sha256": "4a7ce8d447bd41cd6eb22214b9fe3f3c05b9ed2c5ad12b47ecd654e99e8680d8"
     },
     {
-      "path": "source/apps/web/src/api.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/api.ts",
       "bytes": 12052,
       "sha256": "ba8817924467edac4fd5e26bc7a3c4fdffdb4fdc6fbde1659ddbf87ce20d53ed"
     },
     {
-      "path": "source/apps/web/src/App.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/App.tsx",
       "bytes": 14608,
       "sha256": "3805d1f72ef021d6d3131081bdf0e878bdcf6cf0bfbddbfc539289c045496c87"
     },
     {
-      "path": "source/apps/web/src/components/AnswerText.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/AnswerText.tsx",
       "bytes": 623,
       "sha256": "226f1873dd3f91d625c8c5f0f80944f26990d57ca9e4495b47191ba5759e3d1c"
     },
     {
-      "path": "source/apps/web/src/components/AppHeader.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/AppHeader.tsx",
       "bytes": 2833,
       "sha256": "048449042b12c36bd0794448e9bc3380d3fd18aab14372d4de0501fc1f2f7631"
     },
     {
-      "path": "source/apps/web/src/components/Composer.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/Composer.tsx",
       "bytes": 5583,
       "sha256": "42054a69c2212e5542f4ebfaa9c545bdaf2cc5a4e7c97b816b87521906de66e1"
     },
     {
-      "path": "source/apps/web/src/components/Conversation.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/Conversation.tsx",
       "bytes": 7284,
       "sha256": "c8ec35d74b28a4eec6d2e56aebd2fa55ea0773a34eb7d950dd842910fc5c0b11"
     },
     {
-      "path": "source/apps/web/src/components/EmptyState.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/EmptyState.tsx",
       "bytes": 1046,
       "sha256": "169d3b754ea3e6d077af640548f97621e8a18a2d158c040af931afef61c44d1f"
     },
     {
-      "path": "source/apps/web/src/components/Icons.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/Icons.tsx",
       "bytes": 1918,
       "sha256": "ed660dd458efce8825d250519103ef826f59e2c0fce83b8d00ff42bfbac3eb88"
     },
     {
-      "path": "source/apps/web/src/components/Sources.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/Sources.tsx",
       "bytes": 2137,
       "sha256": "e227fa1c18b6c92dbbd10611dc56eabf431d006dcb4ca2a883b604690135b0b5"
     },
     {
-      "path": "source/apps/web/src/components/SystemDetails.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/components/SystemDetails.tsx",
       "bytes": 4006,
       "sha256": "9d05ec6947ee7242e32e907a36062fc70ce83ef059532a2fdc7a4619c3c827dd"
     },
     {
-      "path": "source/apps/web/src/contracts.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/contracts.ts",
       "bytes": 12659,
       "sha256": "f3d5bb4e3a3dc2cb03869b112a89f5aa76dd16061f6886d746529b678300f99a"
     },
     {
-      "path": "source/apps/web/src/demoStatus.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/demoStatus.ts",
       "bytes": 8954,
       "sha256": "1296052a93f5ee0485d26ddebbd2d675b28fbb85d9a3d4f8284cb73a7fbcf5f3"
     },
     {
-      "path": "source/apps/web/src/health.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/health.ts",
       "bytes": 11503,
       "sha256": "f96938d17dffd9c178af8348783d382fc05a7348200fe41ce48c1f937278394c"
     },
     {
-      "path": "source/apps/web/src/main.tsx",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/main.tsx",
       "bytes": 804,
       "sha256": "5c8c375f9a3be2e341ac7cc033d20463ac5fb55dbc2f6c2333b8e22b43f49b76"
     },
     {
-      "path": "source/apps/web/src/modelStatus.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/modelStatus.ts",
       "bytes": 10637,
       "sha256": "3dcd8c217429fff3fbee3e625a9f22f0c277da9a5c52125eaa488ad464c70060"
     },
     {
-      "path": "source/apps/web/src/presentation.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/presentation.ts",
       "bytes": 10545,
       "sha256": "59f5403cf2136dada5690a1c4150cc27173ce010b6d322af2ab2f3c8c0b4b437"
     },
     {
-      "path": "source/apps/web/src/styles/app.css",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/styles/app.css",
       "bytes": 18701,
       "sha256": "543dd2e10f35968ea9a5048dac594dfaa2a1cf0f9921805303f832531a4884eb"
     },
     {
-      "path": "source/apps/web/src/styles/tokens.css",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/styles/tokens.css",
       "bytes": 2079,
       "sha256": "b381e86dbce84c2461972423f8c5c2b2346581a1d0f418563048f1406cb49e16"
     },
     {
-      "path": "source/apps/web/src/suggestions.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/suggestions.ts",
       "bytes": 906,
       "sha256": "fc3fc815f156fbf2d43fd3304af7c1d97ea392c6c3d7b2687626fd2a645aabe9"
     },
     {
-      "path": "source/apps/web/src/vite-env.d.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/src/vite-env.d.ts",
       "bytes": 398,
       "sha256": "faa5f356c480fe7b6b5d17f2ca0465130b701f804e33ee318d785c9c65aa8989"
     },
     {
-      "path": "source/apps/web/tsconfig.json",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/tsconfig.json",
       "bytes": 498,
       "sha256": "adf8d834154b460f1bc8007892e1fcb8f852c707a415ad514eb822f093ebceff"
     },
     {
-      "path": "source/apps/web/vite.config.ts",
+      "path": "projects/01-ai-cad-tutor/source/apps/web/vite.config.ts",
       "bytes": 484,
       "sha256": "6b3424bb02d3da8b3c33de4ad74cec49fac6cc29a3c584b3b49e65ca6ffcc7c6"
     },
     {
-      "path": "source/model_mvp/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/model_mvp/__init__.py",
       "bytes": 525,
       "sha256": "9dee631c5ee873e591af78b2e772e917ea8db6ff06dce01d3c4bd64c734b4d12"
     },
     {
-      "path": "source/model_mvp/rag/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/model_mvp/rag/__init__.py",
       "bytes": 114,
       "sha256": "ee4bdc0212fc49000d9e2ed54fe8a9c78cbd78133d8ed6aec05fd568fba1ff9e"
     },
     {
-      "path": "source/model_mvp/rag/basic_retriever.py",
+      "path": "projects/01-ai-cad-tutor/source/model_mvp/rag/basic_retriever.py",
       "bytes": 9087,
       "sha256": "c9e6ba8f660637ca68e48055cee49d4dc1fb9161e7c15b8c5904a464764c309e"
     },
     {
-      "path": "source/model_mvp/rag/context.py",
+      "path": "projects/01-ai-cad-tutor/source/model_mvp/rag/context.py",
       "bytes": 3422,
       "sha256": "02be7fc757951f4276a0253ba2d433bd2f22a5ad47237b89957728435be283d1"
     },
     {
-      "path": "source/model_mvp/rag/corpus.py",
+      "path": "projects/01-ai-cad-tutor/source/model_mvp/rag/corpus.py",
       "bytes": 9323,
       "sha256": "a9039d5c8a11cbbf3051b1a6ccf984370f43838ec4d5cbdc3fe21102fc83a8d4"
     },
     {
-      "path": "source/model_mvp/rag/protocol.py",
+      "path": "projects/01-ai-cad-tutor/source/model_mvp/rag/protocol.py",
       "bytes": 2325,
       "sha256": "4412fffa11a8b99b6aa93a1cbf4d1256181c7f2a1d761fdf99db7d4982842246"
     },
     {
-      "path": "source/packages/contracts/cad_model.schema.json",
+      "path": "projects/01-ai-cad-tutor/source/packages/contracts/cad_model.schema.json",
       "bytes": 6724,
       "sha256": "ff629338e16fa26f3d9496a639330e386fb6fe083abd7a671d6af7438c87b632"
     },
     {
-      "path": "source/packages/contracts/course_answer.schema.json",
+      "path": "projects/01-ai-cad-tutor/source/packages/contracts/course_answer.schema.json",
       "bytes": 7185,
       "sha256": "2b491feab91907873e7af9397f5e078858ecaff9bd95c123b881c996d755aa8e"
     },
     {
-      "path": "source/packages/contracts/course_question.schema.json",
+      "path": "projects/01-ai-cad-tutor/source/packages/contracts/course_question.schema.json",
       "bytes": 2932,
       "sha256": "fc6ce9f1bf8c95645b9b89d1457ae5034b70c9f1d8959f0b99792d1a4e2d449e"
     },
     {
-      "path": "source/packages/contracts/drawing_analysis.schema.json",
+      "path": "projects/01-ai-cad-tutor/source/packages/contracts/drawing_analysis.schema.json",
       "bytes": 6921,
       "sha256": "8089863975b6dfe46899b5b302f986acbee047e74add9bc47b537f3b8bd0c124"
     },
     {
-      "path": "source/packages/contracts/grading_request.schema.json",
+      "path": "projects/01-ai-cad-tutor/source/packages/contracts/grading_request.schema.json",
       "bytes": 1454,
       "sha256": "5f17a00134643ac639aea95cde2df1828f314215d1af84f01594fd95b5d56b0e"
     },
     {
-      "path": "source/packages/contracts/grading_result.schema.json",
+      "path": "projects/01-ai-cad-tutor/source/packages/contracts/grading_result.schema.json",
       "bytes": 9783,
       "sha256": "c6b37a5ec0e3b08d82080b55f3f42616113d9e6399b3e42f0a865a75fa45734e"
     },
     {
-      "path": "source/pyproject.toml",
+      "path": "projects/01-ai-cad-tutor/source/pyproject.toml",
       "bytes": 1092,
       "sha256": "522b6266843e39ec9b2f3a9adf3a77e8cffd9d6ef0ee703705d1343102514ca5"
     },
     {
-      "path": "source/services/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/config/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/config/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/config/settings.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/config/settings.py",
       "bytes": 14509,
       "sha256": "111bc287f56d5b2dcf58d5d7d9e965fd8bd69b7a9c4521a5888ee2aadd616ea7"
     },
     {
-      "path": "source/services/api/app/contracts.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/contracts.py",
       "bytes": 4455,
       "sha256": "28afd277db8ae345e9125a45d95006c6972c7cf68252a69aca08d70355925832"
     },
     {
-      "path": "source/services/api/app/course_citations.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/course_citations.py",
       "bytes": 7163,
       "sha256": "8c7a924d69f07e713d5dff57d15edd72901ce726a4783e598aa43f8ccda0ff5a"
     },
     {
-      "path": "source/services/api/app/dependencies/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/dependencies/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/dependencies/inference.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/dependencies/inference.py",
       "bytes": 568,
       "sha256": "d20cfe065ba19635cd2cf65e4f784c0685c6c4b9638e035ea9715226453b37e7"
     },
     {
-      "path": "source/services/api/app/errors.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/errors.py",
       "bytes": 7651,
       "sha256": "d24ca057bf2361d1f105d13b1de636a6348f0d89b790fb11b6dd3219eee231c4"
     },
     {
-      "path": "source/services/api/app/launcher.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/launcher.py",
       "bytes": 1607,
       "sha256": "7f5c6d6bba7e11c0239ef91240be0f7459dcb3c80adc71db8c034e785e9dc066"
     },
     {
-      "path": "source/services/api/app/main.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/main.py",
       "bytes": 9904,
       "sha256": "aca307509dd486cd67055e29a42d857f06edc857ffe1c61f8409762ff3e5698a"
     },
     {
-      "path": "source/services/api/app/middleware.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/middleware.py",
       "bytes": 14963,
       "sha256": "ab24b2b623bca647a3fbeb3dd2b596ac206fda0f04006057e945c00f46407474"
     },
     {
-      "path": "source/services/api/app/models/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/models/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/models/course.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/models/course.py",
       "bytes": 10228,
       "sha256": "00708035daf4f46b9d1b60af283164148c4b5479eda643d7a50c402b64d8a09a"
     },
     {
-      "path": "source/services/api/app/models/errors.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/models/errors.py",
       "bytes": 573,
       "sha256": "8ec85b2f581789f02c5bdc749369587021e8951d5af949aada7af7146b40f498"
     },
     {
-      "path": "source/services/api/app/routes/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/routes/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/routes/course.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/routes/course.py",
       "bytes": 20317,
       "sha256": "b7d17443240facf341d3dbf3bbbc96532a59dd7c2a9da858dca25d713ba528ba"
     },
     {
-      "path": "source/services/api/app/routes/health.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/routes/health.py",
       "bytes": 12266,
       "sha256": "a63211fef364fdb389c189b2644eaf4a6411ab38a22901984f00a614073101b1"
     },
     {
-      "path": "source/services/api/app/security.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/security.py",
       "bytes": 14137,
       "sha256": "fbc55c4ba46ec7b8023193f32e0f4ce52384ee27056b706aea0c1ef81a0620f8"
     },
     {
-      "path": "source/services/api/app/services/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/api/app/services/assistant_interaction.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/assistant_interaction.py",
       "bytes": 13556,
       "sha256": "06b72227761d706ebead516891cc60e86b096a96874e877b509804c1cac3d322"
     },
     {
-      "path": "source/services/api/app/services/course.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/course.py",
       "bytes": 9489,
       "sha256": "5b42ee4c674a064e1ab03f9d4b553ef1d3e7fbcd4e274e2498d75de0fdc2aca2"
     },
     {
-      "path": "source/services/api/app/services/course_demo.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/course_demo.py",
       "bytes": 27676,
       "sha256": "a5436ac61d285e8e3da279a8a2f71da615f80d6c237a520dbda8e72be3a7517e"
     },
     {
-      "path": "source/services/api/app/services/demo_conversation.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/demo_conversation.py",
       "bytes": 56412,
       "sha256": "fd21ea46cb9224f7d2b917bd26aa6affb7ba9b9a1ee14920f98abb06618c29ea"
     },
     {
-      "path": "source/services/api/app/services/demo_provenance.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/demo_provenance.py",
       "bytes": 1808,
       "sha256": "20e23de97bbcf06096f3f2ac62f6f6af9cd564818e13e461d5779d44f944c2f5"
     },
     {
-      "path": "source/services/api/app/services/teaching_modes.py",
+      "path": "projects/01-ai-cad-tutor/source/services/api/app/services/teaching_modes.py",
       "bytes": 13644,
       "sha256": "ff70adfcb0d910ea6a1ef29abcf93d294543587415ebf373f8854c1161e3d431"
     },
     {
-      "path": "source/services/inference/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/inference/backends/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/inference/backends/base.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/base.py",
       "bytes": 2687,
       "sha256": "03aaa1612dbc856575a9f1ca92c29a4e195d505d993cdea4bf67db5c3cd17833"
     },
     {
-      "path": "source/services/inference/backends/disabled_backend.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/disabled_backend.py",
       "bytes": 1820,
       "sha256": "453b624a6c338c03331e42a211f881fc3b13cf6d1e6815fd4f6ccbaa6460016f"
     },
     {
-      "path": "source/services/inference/backends/factory.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/factory.py",
       "bytes": 3887,
       "sha256": "a02a284c932177597f6c8320b3cd45a5e6eb1e58415ca2bec77ec8e90004bdcd"
     },
     {
-      "path": "source/services/inference/backends/mock_backend.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/mock_backend.py",
       "bytes": 4136,
       "sha256": "b98962f8872ece34d5de0f80c0ec0f889f34c4948d48be285a8a20c6744e25d8"
     },
     {
-      "path": "source/services/inference/backends/ollama_backend.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/ollama_backend.py",
       "bytes": 10856,
       "sha256": "92acc33021682e6134811dc5b0a0727d4ee743ff4a67c2c060ef5734b7ac80cf"
     },
     {
-      "path": "source/services/inference/backends/v1b_demo_backend.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/v1b_demo_backend.py",
       "bytes": 15011,
       "sha256": "0ec3204b655a56fc0629f5a74e42a64d9b6fd7e529ed6839f71129d4afb21623"
     },
     {
-      "path": "source/services/inference/backends/vllm_backend.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/backends/vllm_backend.py",
       "bytes": 1930,
       "sha256": "a4d99db93cfa4cabf5253bd78e1d2ff1af8bd399260d01ae307d0aab3d8671a9"
     },
     {
-      "path": "source/services/inference/capability.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/capability.py",
       "bytes": 3880,
       "sha256": "0a975fb2d17899305eadc08d7ba8949ecc392f1b79613e7a46b338e132dc8d62"
     },
     {
-      "path": "source/services/inference/errors.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/errors.py",
       "bytes": 1937,
       "sha256": "3162992e00a663bd152d84e8bfbe29b0440e9f833c21ef7bd22eaf9971801fc7"
     },
     {
-      "path": "source/services/inference/v1b_demo_sidecar.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/v1b_demo_sidecar.py",
       "bytes": 19692,
       "sha256": "d0632c9aee0dfe0fc52aa0f345093be2409a88dc802809e197a2da573e1df22c"
     },
     {
-      "path": "source/services/inference/validation.py",
+      "path": "projects/01-ai-cad-tutor/source/services/inference/validation.py",
       "bytes": 7363,
       "sha256": "ec2aa348fbe2a963506e23211b889b50f4508452939a1312bdd8067d80c929e1"
     },
     {
-      "path": "source/services/rag/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/rag/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/rag/retrieval/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/rag/retrieval/__init__.py",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "source/services/rag/retrieval/demo_lexical.py",
+      "path": "projects/01-ai-cad-tutor/source/services/rag/retrieval/demo_lexical.py",
       "bytes": 30363,
       "sha256": "a54a0308ab7712cc4697468178ccab85d57872458e6ea221cc2f0a1fddad097a"
     },
     {
-      "path": "source/services/rag/retrieval/demo_tutorials.py",
+      "path": "projects/01-ai-cad-tutor/source/services/rag/retrieval/demo_tutorials.py",
       "bytes": 12911,
       "sha256": "2426192340b9dc8e65f45f97f7d267b6f6b76297ea98b0249f3cc8751c7cadf5"
     },
     {
-      "path": "source/services/storage/__init__.py",
+      "path": "projects/01-ai-cad-tutor/source/services/storage/__init__.py",
       "bytes": 1519,
       "sha256": "c3e8fbdf0f0f93e726b756fe6f3957d844e7108abb2b0ef26d9802f56c284c27"
     },
     {
-      "path": "source/services/storage/errors.py",
+      "path": "projects/01-ai-cad-tutor/source/services/storage/errors.py",
       "bytes": 933,
       "sha256": "7fba33d10720452eacf0fa650dbe1526d5f54d83080eef54a7430bedd2174b82"
     },
     {
-      "path": "source/services/storage/pathcheck.py",
+      "path": "projects/01-ai-cad-tutor/source/services/storage/pathcheck.py",
       "bytes": 2508,
       "sha256": "72c22369a0200ee3d80087b42802c1b0c59cac44ecdcdd0b1b4df10b8d346f13"
     },
     {
-      "path": "source/services/storage/paths.py",
+      "path": "projects/01-ai-cad-tutor/source/services/storage/paths.py",
       "bytes": 4925,
       "sha256": "39957b4a8183ea458a5888e282c69f29d745be74ed3820c2ec65038a432f91c9"
     },
     {
-      "path": "source/services/storage/policy.py",
+      "path": "projects/01-ai-cad-tutor/source/services/storage/policy.py",
       "bytes": 9018,
       "sha256": "63fe4db74c9dac9e03b7728afe1c84079b516944d7967cb73ab4157ce973b0df"
     },
     {
-      "path": "source/services/storage/service.py",
+      "path": "projects/01-ai-cad-tutor/source/services/storage/service.py",
       "bytes": 17835,
       "sha256": "68146ae8b91b859e8ca82581d96d56251d6bc565ecbec962022a65f0f9ee6f53"
+    },
+    {
+      "path": "projects/02-lumbar-spine-research/README.md",
+      "bytes": 2233,
+      "sha256": "34c4eb53ecf0bb054accceec56763cb84b939ab850fb301bc7eae1e6e12d71d6"
+    },
+    {
+      "path": "projects/03-adaptive-massager/README.md",
+      "bytes": 1171,
+      "sha256": "626406ea6c2960bf7fbe6f753e382e2b365a8e0057b7bd075ad6f51012d08d73"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2614,
+      "sha256": "dd81fb70d70bfc3cb42c6b1d77bc6a01df4d7b7705ac5ebfb019b08969924843"
     }
   ]
 }
