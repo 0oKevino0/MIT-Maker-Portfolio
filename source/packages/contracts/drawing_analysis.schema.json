@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cswa-ai-tutor.local/contracts/drawing_analysis/1.0.0",
+  "title": "DrawingAnalysis",
+  "description": "Structured analysis of an uploaded engineering drawing or SOLIDWORKS screenshot. The image itself travels as a separate multipart byte part, never inside this JSON.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "analysis_id",
+    "image_sha256",
+    "status",
+    "visible_features",
+    "recommended_modeling_steps",
+    "explicit_dimensions",
+    "estimated_dimensions",
+    "missing_information",
+    "alternative_modeling_paths",
+    "overall_confidence",
+    "warnings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "analysis_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "image_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "enum": ["analyzed", "insufficient_image_quality", "unsupported_content"]
+    },
+    "visible_features": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FeatureObservation"
+      }
+    },
+    "recommended_modeling_steps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ModelingStep"
+      }
+    },
+    "explicit_dimensions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ExplicitDimension"
+      }
+    },
+    "estimated_dimensions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/EstimatedDimension"
+      }
+    },
+    "missing_information": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternative_modeling_paths": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AlternativeModelingPath"
+      }
+    },
+    "overall_confidence": {
+      "$ref": "#/$defs/Confidence"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "Confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "DimensionUnit": {
+      "description": "Length or angle subset of UnitCode; null when the unit cannot be determined.",
+      "enum": ["m", "mm", "cm", "in", "ft", "rad", "deg", null]
+    },
+    "EvidenceBbox": {
+      "description": "Normalized bounding box on the sanitized image; all values in [0, 1].",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "FeatureObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feature_id", "label", "confidence"],
+      "properties": {
+        "feature_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        },
+        "evidence_bbox": {
+          "$ref": "#/$defs/EvidenceBbox"
+        }
+      }
+    },
+    "ModelingStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["step", "operation", "rationale", "confidence"],
+      "properties": {
+        "step": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "operation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        }
+      }
+    },
+    "AlternativeModelingPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path_id", "summary", "steps", "tradeoffs", "confidence"],
+      "properties": {
+        "path_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ModelingStep"
+          }
+        },
+        "tradeoffs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        }
+      }
+    },
+    "ExplicitDimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dimension_id",
+        "kind",
+        "display_text",
+        "value",
+        "unit",
+        "unit_source",
+        "evidence_bbox",
+        "confidence"
+      ],
+      "properties": {
+        "dimension_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": ["linear", "angular", "radius", "diameter", "other"]
+        },
+        "display_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/DimensionUnit"
+        },
+        "unit_source": {
+          "enum": ["visible", "drawing_default", "unknown"]
+        },
+        "evidence_bbox": {
+          "$ref": "#/$defs/EvidenceBbox"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        }
+      }
+    },
+    "EstimatedDimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension_id", "kind", "value_range", "unit", "basis", "confidence", "is_exact"],
+      "properties": {
+        "dimension_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": ["linear", "angular", "radius", "diameter", "other"]
+        },
+        "value_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["min", "max"],
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          }
+        },
+        "unit": {
+          "$ref": "#/$defs/DimensionUnit"
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence"
+        },
+        "is_exact": {
+          "const": false
+        }
+      }
+    }
+  }
+}

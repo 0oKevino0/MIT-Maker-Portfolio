@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cswa-ai-tutor.local/contracts/cad_model/1.0.0",
+  "title": "CadModel",
+  "description": "Immutable snapshot of an active SOLIDWORKS document produced by the Windows add-in through the official SOLIDWORKS API. Never contains CAD file bytes, base64 payloads, client file paths, or URLs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "model_id",
+    "captured_at",
+    "source",
+    "document_type",
+    "configuration_name",
+    "document_state",
+    "extractor",
+    "source_units",
+    "material",
+    "mass_properties",
+    "rebuild_status",
+    "features",
+    "sketches",
+    "extraction_warnings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "model_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "const": "solidworks_api"
+    },
+    "document_type": {
+      "enum": ["part", "assembly", "drawing"]
+    },
+    "configuration_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "document_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dirty", "saved", "read_only"],
+      "properties": {
+        "dirty": {
+          "type": "boolean"
+        },
+        "saved": {
+          "type": "boolean"
+        },
+        "read_only": {
+          "type": "boolean"
+        }
+      }
+    },
+    "extractor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "solidworks_version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "solidworks_version": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "source_units": {
+      "description": "Units of the source document, for display and audit only. Comparable values are always SI as named by each field.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["length", "mass", "angle"],
+      "properties": {
+        "length": {
+          "enum": ["m", "mm", "cm", "in", "ft"]
+        },
+        "mass": {
+          "enum": ["kg", "g", "lb"]
+        },
+        "angle": {
+          "enum": ["rad", "deg"]
+        }
+      }
+    },
+    "material": {
+      "$ref": "#/$defs/MaterialState"
+    },
+    "mass_properties": {
+      "$ref": "#/$defs/MassProperties"
+    },
+    "rebuild_status": {
+      "$ref": "#/$defs/RebuildStatus"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FeatureSummary"
+      }
+    },
+    "sketches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SketchSummary"
+      }
+    },
+    "extraction_warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "MaterialState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "name"],
+      "properties": {
+        "status": {
+          "enum": ["assigned", "unassigned", "unknown"]
+        },
+        "name": {
+          "type": ["string", "null"]
+        },
+        "database_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Vector3": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      }
+    },
+    "MassProperties": {
+      "description": "Normalized mass properties in SI units. Missing values are null with a warning, never zero.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "mass_kg",
+        "volume_m3",
+        "surface_area_m2",
+        "center_of_mass_m",
+        "bounding_box_m",
+        "coordinate_system"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["current", "stale", "unavailable"]
+        },
+        "mass_kg": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "volume_m3": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "surface_area_m2": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "center_of_mass_m": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Vector3"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bounding_box_m": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["min", "max"],
+              "properties": {
+                "min": {
+                  "$ref": "#/$defs/Vector3"
+                },
+                "max": {
+                  "$ref": "#/$defs/Vector3"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coordinate_system": {
+          "const": "model_origin"
+        }
+      }
+    },
+    "RebuildStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "error_count", "warning_count"],
+      "properties": {
+        "state": {
+          "enum": ["ok", "warning", "error", "unknown"]
+        },
+        "error_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warning_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "FeatureSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "suppressed"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "suppressed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SketchSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "status", "suppressed"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": ["fully_defined", "under_defined", "over_defined", "dangling", "unknown"]
+        },
+        "suppressed": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

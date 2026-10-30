@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cswa-ai-tutor"
+version = "0.1.0"
+description = "Offline CSWA/SOLIDWORKS AI tutor backend services"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "httpx>=0.27",
+    "uvicorn>=0.30",
+    # Runtime draft/contract validation (shared model trust boundary).
+    "jsonschema[format-nongpl]>=4.22",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+]
+
+[tool.setuptools.packages.find]
+include = ["services*", "tools*"]
+
+[tool.pytest.ini_options]
+testpaths = ["services", "tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["apps", "cad", "data", "hpc", "docs", "prompts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["services", "tools"]

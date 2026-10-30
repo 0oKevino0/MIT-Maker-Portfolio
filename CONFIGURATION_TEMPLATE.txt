@@ -1,0 +1,27 @@
+SANITIZED CONFIGURATION REFERENCE — NOT READY TO RUN
+Prepared independently; no original .env was read or copied. Replace placeholders locally.
+
+API configuration names:
+APP_ENV=development
+API_BIND_HOST=127.0.0.1
+API_PORT=8000
+API_ALLOWED_ORIGINS=http://127.0.0.1:5173
+API_ALLOWED_HOSTS=127.0.0.1,localhost
+TEXT_BACKEND=disabled
+VISION_BACKEND=disabled
+CSWA_LOCAL_API_TOKEN=<generate-a-new-local-token; do-not-share>
+CSWA_DATA_ROOT=<authorized-external-data-directory>
+
+For the historical-style demo (not enabled by this template), configuration additionally
+requires INTERNAL_DEMO_ENABLED, TEXT_BACKEND=v1b_demo, TEXT_BASE_URL, TEXT_MODEL_ID,
+DEMO_EXPECTED_ADAPTER_SHA256, and the authorized corpus/source/permission paths and hashes
+documented in source/services/api/app/config/settings.py. Those resources are excluded.
+
+Frontend configuration names:
+VITE_API_BASE_URL=http://127.0.0.1:8000
+VITE_INTERNAL_DEMO=false
+VITE_ALLOW_REMOTE_API=false
+VITE_CSWA_LOCAL_TOKEN=<same-new-local-token-as-API; do-not-publish>
+
+The sidecar additionally requires an already available base checkpoint, model revision,
+adapter files and expected digests. Nothing in this package downloads them or supplies keys.

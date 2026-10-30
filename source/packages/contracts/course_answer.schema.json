@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cswa-ai-tutor.local/contracts/course_answer/1.0.0",
+  "title": "CourseAnswer",
+  "description": "Grounded answer returned by POST /api/v1/course/ask.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "answer_id",
+    "answer_mode",
+    "grounding_status",
+    "answer_text",
+    "citations",
+    "warnings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "answer_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "answer_mode": {
+      "enum": ["hint_1", "hint_2", "guided_steps", "full_explanation", "instructor"]
+    },
+    "grounding_status": {
+      "enum": [
+            "grounded",
+            "partially_grounded",
+            "insufficient_evidence",
+            "assistant_interaction"
+          ]
+    },
+    "answer_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 12000
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Citation"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "guided_progress": {
+      "description": "Explicit Guided Steps position of the internal demo tutor: the authorized procedure topic, the step-bearing record it is bound to, the last step shown, the record's step count, and whether every step has been shown. The browser keeps it and sends it back; the API validates it against the actual authorized record and ignores anything that does not match. Progress is the student's own indication, not a verified SOLIDWORKS state.",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["topic", "record_id", "step", "total", "ended"],
+      "properties": {
+        "topic": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "record_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "step": { "type": "integer", "minimum": 0, "maximum": 50 },
+        "total": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "ended": { "type": "boolean" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "assistant_interaction answers are built-in assistant replies to a greeting or a control message: no course evidence was retrieved and none is claimed, so they must carry no citations.",
+      "if": {
+        "properties": { "grounding_status": { "const": "assistant_interaction" } },
+        "required": ["grounding_status"]
+      },
+      "then": { "properties": { "citations": { "maxItems": 0 } } }
+    },
+    {
+      "description": "insufficient_evidence answers must not fabricate citations (ADR 0001 section 7).",
+      "if": {
+        "properties": {
+          "grounding_status": {
+            "const": "insufficient_evidence"
+          }
+        },
+        "required": ["grounding_status"]
+      },
+      "then": {
+        "properties": {
+          "citations": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "description": "grounded and partially_grounded answers require at least one citation.",
+      "if": {
+        "properties": {
+          "grounding_status": {
+            "enum": ["grounded", "partially_grounded"]
+          }
+        },
+        "required": ["grounding_status"]
+      },
+      "then": {
+        "properties": {
+          "citations": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "Uuid": {
+      "type": "string",
+      "minLength": 36,
+      "maxLength": 36,
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "Citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_id",
+        "document_id",
+        "document_version",
+        "chunk_id",
+        "title",
+        "document_type",
+        "locator"
+      ],
+      "properties": {
+        "citation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^(?:c[0-9]+|[A-Za-z0-9][A-Za-z0-9._:-]*[._:-][A-Za-z0-9][A-Za-z0-9._:-]*)(?![\\s\\S])"
+        },
+        "document_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "chunk_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_type": {
+          "enum": ["lecture_slide", "lecture_pdf", "transcript", "homework", "instructor_note"]
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "snippet": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "Locator": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "page_number"],
+          "properties": {
+            "kind": {
+              "const": "page"
+            },
+            "page_number": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "slide_number"],
+          "properties": {
+            "kind": {
+              "const": "slide"
+            },
+            "slide_number": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "lecture_number": {
+              "type": ["integer", "null"],
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "start_seconds", "end_seconds"],
+          "properties": {
+            "kind": {
+              "const": "timestamp"
+            },
+            "start_seconds": {
+              "type": "number",
+              "minimum": 0
+            },
+            "end_seconds": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "item"],
+          "properties": {
+            "kind": {
+              "const": "homework"
+            },
+            "item": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "section"],
+          "properties": {
+            "kind": {
+              "const": "section"
+            },
+            "section": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    }
+  }
+}

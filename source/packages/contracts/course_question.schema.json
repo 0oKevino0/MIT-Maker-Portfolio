@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cswa-ai-tutor.local/contracts/course_question/1.0.0",
+  "title": "CourseQuestion",
+  "description": "Student question submitted to POST /api/v1/course/ask.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "course_id", "question", "answer_mode"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "course_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "answer_mode": {
+      "enum": ["hint_1", "hint_2", "guided_steps", "full_explanation", "instructor"]
+    },
+    "history": {
+      "description": "Bounded conversation context for the internal demo tutor: the most recent turns of THIS conversation, newest last. The browser keeps the transcript; the API stays stateless. Only user and assistant roles are accepted — a browser may not inject a system or developer turn — and the bounds are hard: at most 6 messages, each at most 2000 characters.",
+      "type": ["array", "null"],
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "content"],
+        "properties": {
+          "role": { "enum": ["user", "assistant"] },
+          "content": { "type": "string", "minLength": 1, "maxLength": 2000 }
+        }
+      }
+    },
+    "locale": {
+      "type": ["string", "null"],
+      "minLength": 2,
+      "maxLength": 35
+    },
+    "guided_progress": {
+      "description": "Explicit Guided Steps position of the internal demo tutor: the authorized procedure topic, the step-bearing record it is bound to, the last step shown, the record's step count, and whether every step has been shown. The browser keeps it and sends it back; the API validates it against the actual authorized record and ignores anything that does not match. Progress is the student's own indication, not a verified SOLIDWORKS state.",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["topic", "record_id", "step", "total", "ended"],
+      "properties": {
+        "topic": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "record_id": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "step": { "type": "integer", "minimum": 0, "maximum": 50 },
+        "total": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "ended": { "type": "boolean" }
+      }
+    }
+  },
+  "$defs": {
+    "Uuid": {
+      "type": "string",
+      "minLength": 36,
+      "maxLength": 36,
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

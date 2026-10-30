@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cswa-ai-tutor.local/contracts/grading_request/1.0.0",
+  "title": "GradingRequest",
+  "description": "Request submitted to POST /api/v1/grading/evaluate. Reference values, tolerances, and pass/fail rules are resolved server-side from the grading profile; clients cannot embed or override them.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "submission_id", "grading_profile", "student_model"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "submission_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "grading_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    },
+    "student_model": {
+      "$ref": "https://cswa-ai-tutor.local/contracts/cad_model/1.0.0"
+    },
+    "explanation_requested": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "$defs": {
+    "Uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    }
+  }
+}

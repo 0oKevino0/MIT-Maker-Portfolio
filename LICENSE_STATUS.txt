@@ -1,0 +1,14 @@
+PROJECT LICENSE STATUS
+The unmodified original pyproject.toml declares license text: Proprietary.
+No standalone project LICENSE/COPYING file was found in the inspected repository root.
+This preparation does not grant an open-source license or certify redistribution rights.
+
+THIRD-PARTY MATERIAL
+Only project code and available dependency license/notice documents are copied; no
+third-party library implementation, binary, model weight or course content is bundled.
+Available direct dependency notices are preserved under licenses/ with package metadata
+in DEPENDENCIES_AND_LICENSES.json. Lockfile license identifiers are metadata, not a
+substitute for applicable full license terms. Licenses of every transitive dependency and
+the separate Qwen checkpoint/adapter have not been comprehensively reviewed here.
+transformers/peft metadata was unavailable locally; nothing was downloaded to fill gaps.
+Current local package versions are not claimed to match the historical GPU demo.

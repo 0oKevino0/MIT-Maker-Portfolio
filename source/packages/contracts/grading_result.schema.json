@@ -1,0 +1,443 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cswa-ai-tutor.local/contracts/grading_result/1.0.0",
+  "title": "GradingResult",
+  "description": "Deterministic, auditable evaluation of a student CAD model. The outcome is computed only by deterministic rules; the language model may contribute a non-authoritative explanation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "grading_id",
+    "submission_id",
+    "evaluated_at",
+    "grading_profile",
+    "engine_version",
+    "decision_source",
+    "outcome",
+    "checks",
+    "possible_causes",
+    "recommended_checks",
+    "tutor_explanation",
+    "warnings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "grading_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "submission_id": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "grading_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "engine_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_source": {
+      "const": "deterministic_rules"
+    },
+    "outcome": {
+      "enum": ["pass", "close", "fail", "not_gradable"]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CheckResult"
+      }
+    },
+    "possible_causes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PossibleCause"
+      }
+    },
+    "recommended_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tutor_explanation": {
+      "$ref": "#/$defs/TutorExplanation"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "UnitCode": {
+      "enum": [
+        "m",
+        "mm",
+        "cm",
+        "in",
+        "ft",
+        "m2",
+        "mm2",
+        "in2",
+        "m3",
+        "mm3",
+        "in3",
+        "kg",
+        "g",
+        "lb",
+        "rad",
+        "deg",
+        "percent",
+        "unitless"
+      ]
+    },
+    "Vector3": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      }
+    },
+    "ComparableValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value", "unit"],
+          "properties": {
+            "kind": {
+              "const": "number"
+            },
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "$ref": "#/$defs/UnitCode"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "x", "y", "z", "unit"],
+          "properties": {
+            "kind": {
+              "const": "vector3"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "z": {
+              "type": "number"
+            },
+            "unit": {
+              "$ref": "#/$defs/UnitCode"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "min", "max", "unit"],
+          "properties": {
+            "kind": {
+              "const": "box3"
+            },
+            "min": {
+              "$ref": "#/$defs/Vector3"
+            },
+            "max": {
+              "$ref": "#/$defs/Vector3"
+            },
+            "unit": {
+              "$ref": "#/$defs/UnitCode"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": {
+              "const": "text"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": {
+              "const": "boolean"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "ToleranceApplied": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "absolute", "relative_fraction", "unit", "comparator"],
+      "properties": {
+        "mode": {
+          "enum": ["absolute", "relative", "both"]
+        },
+        "absolute": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "relative_fraction": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "unit": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/UnitCode"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "comparator": {
+          "const": "less_than_or_equal"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "absolute"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "absolute": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "relative"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "relative_fraction": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "both"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "absolute": {
+                "type": "number"
+              },
+              "relative_fraction": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CheckResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "check_id",
+        "metric",
+        "rule_id",
+        "status",
+        "actual",
+        "expected",
+        "difference",
+        "tolerance_applied",
+        "message"
+      ],
+      "properties": {
+        "check_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric": {
+          "enum": [
+            "units",
+            "material",
+            "mass",
+            "volume",
+            "surface_area",
+            "center_of_mass",
+            "bounding_box",
+            "rebuild_status"
+          ]
+        },
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": ["pass", "warning", "fail", "not_evaluated"]
+        },
+        "actual": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ComparableValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expected": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ComparableValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "difference": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ComparableValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tolerance_applied": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ToleranceApplied"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "PossibleCause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cause_id", "message", "evidence_check_ids", "source", "certainty"],
+      "properties": {
+        "cause_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_check_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "enum": ["deterministic_rule", "model_suggestion"]
+        },
+        "certainty": {
+          "enum": ["possible", "likely"]
+        }
+      }
+    },
+    "TutorExplanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "text", "evidence_check_ids", "non_authoritative"],
+      "properties": {
+        "status": {
+          "enum": ["not_requested", "generated", "unavailable"]
+        },
+        "text": {
+          "type": ["string", "null"]
+        },
+        "evidence_check_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "non_authoritative": {
+          "const": true
+        }
+      }
+    }
+  }
+}
