@@ -2,6 +2,8 @@
 
 AI CAD Tutor is a local AI learning application for SOLIDWORKS and CSWA education, developed by [0oKevino0](https://github.com/0oKevino0). The application is in use; this repository is a separate source snapshot prepared for external technical review.
 
+**Portfolio reviewers:** the [portfolio code guide](PORTFOLIO_CODE_GUIDE.md) provides the AI CAD Tutor source, laboratory-maintained spine research repositories, and the claude-cad workflow used for massager design, with their respective roles and attribution.
+
 ## What the application does
 
 - Answers course-grounded questions with cited source material.
@@ -54,7 +56,7 @@ The project owner leads the design and development. Claude assisted with code re
 
 ## Related work
 
-The separate [claude-cad](https://github.com/0oKevino0/claude-cad) repository contains the owner's public Claude Code/CadQuery workflow used for adaptive massager CAD modeling. It is a modeling tool, not the AI CAD Tutor's codebase. No laboratory spine code is included here.
+The separate [claude-cad](https://github.com/0oKevino0/claude-cad) repository contains the owner's public Claude Code/CadQuery workflow used for adaptive massager CAD modeling. The [portfolio code guide](PORTFOLIO_CODE_GUIDE.md) also links to spine research code maintained by Ahmadi Lab. Laboratory code is referenced in its original repositories with its existing attribution and licenses.
 
 ## Snapshot and licensing
 

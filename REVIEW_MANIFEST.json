@@ -109,9 +109,14 @@
       "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371"
     },
     {
+      "path": "PORTFOLIO_CODE_GUIDE.md",
+      "bytes": 3499,
+      "sha256": "16c9ade6890fff268f978836aeb3e397c147713f3e231210244f0eb1f4e4f5e0"
+    },
+    {
       "path": "README.md",
-      "bytes": 5739,
-      "sha256": "1575ddc9ac080e28519d923829fe558bbadb8a180afe64f4f061bfb6a609c317"
+      "bytes": 6119,
+      "sha256": "b7d71231f7651a1f43dd8b016cb622c87183add63b2e01027c561b8c868384a7"
     },
     {
       "path": "source/apps/web/index.html",
