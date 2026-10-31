@@ -6,7 +6,7 @@ Code and design supporting materials for my MIT Maker Portfolio. This repository
 | --- | --- | --- |
 | [01 AI CAD Tutor](projects/01-ai-cad-tutor/README.md) | 88 included source and dependency/configuration files, dependency notices, and runtime limitations. | Design and development; Claude assisted with code, frontend work, and review; Codex assisted with version control and review. |
 | [02 Collaborative lumbar-spine research](projects/02-lumbar-spine-research/README.md) | Links to laboratory-maintained geometry, ligament, and finite-element preparation code; separate context for related 2026 research. | Training-data preparation, model training and fine-tuning, segmentation code, and evaluation. The complete workflow and published results are team work. |
-| [03 Adaptive massager design](projects/03-adaptive-massager/README.md) | Design notes and the linked claude-cad modeling workflow. CAD evidence is supplied separately in the portfolio. | Design and development, with Claude-assisted CAD modeling and external fabrication coordination. The device remains in development. |
+| [03 Adaptive massager design](projects/03-adaptive-massager/README.md) | Design notes and the linked claude-cad modeling workflow. CAD evidence is supplied separately in the portfolio. | Design and development using my open-source claude-cad project for CAD modeling, with external fabrication coordination. The device remains in development. |
 
 The application videos and other portfolio evidence are supplied separately. Each project page explains what the available code or design material supports and what is not included.
 
